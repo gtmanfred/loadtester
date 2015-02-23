@@ -87,7 +87,7 @@ sproxy:
     - user: {{ user }}
     - group: {{ group }}
     - mode: 600
-    - pillar_contents: loadmaster:privkey
+    - contents_pillar: loadmaster:privkey
     - require:
       - file: /home/{{ user }}/.ssh
 
