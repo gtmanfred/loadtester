@@ -79,7 +79,7 @@ sproxy:
     - user: {{ user }}
     - group: {{ group }}
     - mode: 700
-    - requires:
+    - require:
       - file: /home/{{ user }}
 
 /home/{{ user }}/.ssh/id_rsa:
@@ -94,7 +94,7 @@ sproxy:
 {{ docroot }}:
   file.directory:
     - mode: 755
-    - requires:
+    - require:
       - pkg: httpd
 
 https://github.com/mparker1001/loadmaster-web:
@@ -102,7 +102,7 @@ https://github.com/mparker1001/loadmaster-web:
     - rev: master
     - target: {{ docroot }}
     - force: true
-    - requires:
+    - require:
       - file: {{ docroot }}
 
 {{ docroot }}/config.inc.php:
