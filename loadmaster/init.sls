@@ -28,7 +28,7 @@ httpd:
     - enable: True
     - require:
       - pkg: php
-    - watch:
+    - onchanges:
       - file: /etc/httpd/conf/httpd.conf
       - file: /etc/httpd/conf.d/welcome.conf
 
@@ -56,7 +56,7 @@ get-sproxy:
   cmd.wait:
     - cwd: {{ compileroot }}
     - name: tar -xzvf {{ compileroot }}/sproxy-latest.tar.gz
-    - watch:
+    - onchanges:
       - file: get-sproxy
 
 sproxy:
@@ -65,7 +65,7 @@ sproxy:
     - names:
       - ./configure
       - make && make install
-    - watch:
+    - onchanges:
       - cmd: get-sproxy
 
 /home/{{ user }}:
