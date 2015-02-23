@@ -36,7 +36,7 @@ siege:
     - user: {{ user }}
     - group: {{ group }}
     - mode: 600
-    - contents: {{ loadworker.get('pubkey') }}
+    - pillar_contents: loadworker:pubkey
     - require:
       - user: {{ user }}
       - file: {{ home }}/.ssh
