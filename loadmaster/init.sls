@@ -50,14 +50,13 @@ iptables:
     - enable: False
 
 get-sproxy:
-  file.managed:
-    - name: {{ compileroot }}/sproxy-latest.tar.gz
+  archive.extracted:
+    - name: {{ compileroot }}
     - source: salt://loadmaster/files/vendor/sproxy-latest.tar.gz
-  cmd.wait:
     - cwd: {{ compileroot }}
-    - name: tar -xzvf {{ compileroot }}/sproxy-latest.tar.gz
-    - onchanges:
-      - file: get-sproxy
+    - archive_format: tar
+    - tar_options: xvzf {{compileroot}}/sproxy-latest.tar.gz
+    - if_missing: {{compileroot}}/sproxy-1.02
 
 sproxy:
   cmd.wait:
@@ -66,7 +65,7 @@ sproxy:
       - ./configure
       - make && make install
     - onchanges:
-      - cmd: get-sproxy
+      - archive: get-sproxy
 
 /home/{{ user }}:
   file.directory:
