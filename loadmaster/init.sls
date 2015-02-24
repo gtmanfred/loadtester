@@ -54,8 +54,8 @@ get-sproxy:
     - name: {{ compileroot }}
     - source: salt://loadmaster/files/vendor/sproxy-latest.tar.gz
     - archive_format: tar
-    - tar_options: vz
-    - if_missing: {{compileroot}}/sproxy-1.02
+    - tar_options: v
+    - if_missing: {{compileroot}}/sproxy-1.02/
 
 sproxy:
   cmd.wait:
