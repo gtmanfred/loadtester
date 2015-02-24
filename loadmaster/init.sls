@@ -52,7 +52,8 @@ iptables:
 get-sproxy:
   archive.extracted:
     - name: /root/
-    - source: salt://loadmaster/files/vendor/sproxy-latest.tar.gz
+    - source: http://download.joedog.org/sproxy/sproxy-1.02.tar.gz
+    - source_hash: md5=458461a1b3f731c77528cc61b547d188
     - archive_format: tar
     - tar_options: v
     - if_missing: {{compileroot}}/sproxy-1.02/
