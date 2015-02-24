@@ -55,7 +55,7 @@ get-sproxy:
     - source: salt://loadmaster/files/vendor/sproxy-latest.tar.gz
     - cwd: {{ compileroot }}
     - archive_format: tar
-    - tar_options: xvzf {{compileroot}}/sproxy-latest.tar.gz
+    - tar_options: -xvzf {{compileroot}}/sproxy-latest.tar.gz
     - if_missing: {{compileroot}}/sproxy-1.02
 
 sproxy:
