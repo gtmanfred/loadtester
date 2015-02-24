@@ -51,7 +51,7 @@ iptables:
 
 get-sproxy:
   archive.extracted:
-    - name: {{ compileroot }}
+    - name: /root/
     - source: salt://loadmaster/files/vendor/sproxy-latest.tar.gz
     - archive_format: tar
     - tar_options: v
