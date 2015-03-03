@@ -56,7 +56,7 @@ get-sproxy:
     - source_hash: md5=458461a1b3f731c77528cc61b547d188
     - archive_format: tar
     - tar_options: z
-    - if_missing: {{compileroot}}/sproxy-1.02/
+    - unless: test -d {{ compileroot }}/sproxy-1.02/
 
 sproxy:
   cmd.wait:
