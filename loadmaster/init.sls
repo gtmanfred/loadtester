@@ -26,6 +26,7 @@ httpd:
   service:
     - running
     - enable: True
+    - reload: True
     - require:
       - pkg: php
     - onchanges:
