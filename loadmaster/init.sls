@@ -59,7 +59,7 @@ get-sproxy:
     - if_missing: /usr/local/bin/sproxy
 
 sproxy:
-  cmd.wait:
+  cmd.run:
     - cwd: {{ compileroot }}/sproxy-1.02
     - names:
       - ./configure
