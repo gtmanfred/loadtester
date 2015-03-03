@@ -63,7 +63,8 @@ sproxy:
     - cwd: {{ compileroot }}/sproxy-1.02
     - names:
       - ./configure
-      - make && make install
+      - make
+      - make install
     - onchanges:
       - archive: get-sproxy
 
